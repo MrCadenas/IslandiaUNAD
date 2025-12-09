@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carnaval de Basilea - Patrimonio Cultural Inmaterial UNESCO. Descubre las tradiciones, historia y eventos del fascinante carnaval suizo.">
+  <title>Basler Fasnacht - Carnaval de Basilea</title>
+  <style>
+    :root {
+      --basel-red: #DC143C;
+      --basel-white: #FFFFFF;
+      --basel-black: #1A1A1A;
+      --basel-gold: #C9A300;
+      --basel-silver: #C0C0C0;
+      --text-dark: #2C2C2C;
+      --text-light: #F5F5F5;
+      --basel-green: #6edc9b;
+      --basel-green-soft: #e9fbf1;
+      --basel-gold-soft: #fff7d6;
+      --basel-red-soft: #ffe5eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--basel-white);
+    }
+
+    /* Skip to main content link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--basel-gold);
+      color: var(--basel-black);
+      padding: 8px;
+      text-decoration: none;
+      z-index: 10000;
+      font-weight: bold;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--basel-red), var(--basel-black));
+      color: #fff;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--basel-gold);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease, background 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--basel-gold);
+      background: rgba(255, 255, 255, 0.1);
+      outline: none;
+    }
+
+    .language-switch {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .language-switch button {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .language-switch button:hover,
+    .language-switch button:focus {
+      background: var(--basel-gold);
+      color: var(--basel-black);
+      border-color: var(--basel-gold);
+    }
+
+    .language-switch button.active {
+      background: var(--basel-gold);
+      color: var(--basel-black);
+      border-color: var(--basel-gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      margin-top: 80px;
+      position: relative;
+      background: linear-gradient(135deg, var(--basel-red), var(--basel-black));
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.7;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+      color: var(--basel-gold);
+    }
+
+    .hero-content p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--basel-gold);
+      color: var(--basel-black);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .cta-button:hover,
+    .cta-button:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+    }
+
+    /* Main Content */
+    main {
+      background: var(--basel-white);
+      min-height: 100vh;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--basel-red);
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--basel-gold);
+    }
+
+    /* Traditions Grid */
+    .traditions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .tradition-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-left: 5px solid var(--basel-red);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tradition-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(220, 20, 60, 0.2);
+    }
+
+    .tradition-card h3 {
+      color: var(--basel-red);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .tradition-card .icon {
+      font-size: 2rem;
+      color: var(--basel-gold);
+      margin-bottom: 1rem;
+    }
+
+    .unesco-banner {
+      background: linear-gradient(45deg, var(--basel-gold), var(--basel-silver));
+      color: var(--basel-black);
+      text-align: center;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    /* Historia Images */
+    .history-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .history-images img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Events Grid */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .event-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+    }
+
+    .event-card h3 {
+      color: var(--basel-red);
+      margin-bottom: 1rem;
+    }
+
+    .event-card video {
+      width: 100%;
+      margin-top: 1rem;
+      border-radius: 10px;
+      max-height: 300px;
+    }
+
+    .event-date {
+      color: var(--basel-gold);
+      font-weight: bold;
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    /* Schedule */
+    .schedule-subtitle {
+      text-align: center;
+      color: var(--text-dark);
+      opacity: 0.8;
+      margin-top: 0.65rem;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .day-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      border: 2px solid transparent;
+    }
+
+    .day-head {
+      padding: 1rem 1.25rem;
+      color: #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      letter-spacing: 0.2px;
+    }
+
+    .day-body {
+      padding: 1rem 1.25rem 1.1rem;
+      background: #fff;
+    }
+
+    .event {
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .event + .event {
+      margin-top: 0.8rem;
+    }
+
+    .event-time {
+      font-weight: 800;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .event-content b {
+      color: var(--text-dark);
+    }
+
+    .event-content small {
+      display: block;
+      opacity: 0.7;
+      margin-top: 0.15rem;
+    }
+
+    .day--mon {
+      border-color: var(--basel-red);
+    }
+
+    .day--mon .day-head {
+      background: var(--basel-red);
+    }
+
+    .day--mon .event {
+      background: var(--basel-red-soft);
+    }
+
+    .day--tue {
+      border-color: var(--basel-gold);
+    }
+
+    .day--tue .day-head {
+      background: var(--basel-gold);
+      color: var(--basel-black);
+    }
+
+    .day--tue .event {
+      background: var(--basel-gold-soft);
+    }
+
+    .day--wed {
+      border-color: var(--basel-green);
+    }
+
+    .day--wed .day-head {
+      background: var(--basel-green);
+      color: var(--basel-black);
+    }
+
+    .day--wed .event {
+      background: var(--basel-green-soft);
+    }
+
+    .legend {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .legend i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 0.35rem;
+    }
+
+    .legend .r i {
+      background: var(--basel-red);
+    }
+
+    .legend .y i {
+      background: var(--basel-gold);
+    }
+
+    .legend .g i {
+      background: var(--basel-green);
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .contact-info,
+    .contact-form-box {
+      flex: 1;
+      min-width: 320px;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-info {
+      background: var(--basel-red-soft);
+    }
+
+    .contact-form-box {
+      background: var(--basel-gold-soft);
+    }
+
+    .contact-info h3,
+    .contact-form-box h3 {
+      color: var(--basel-red);
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-info-item {
+      margin-bottom: 1rem;
+    }
+
+    .contact-info-label {
+      font-weight: bold;
+      color: var(--basel-red);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    form label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: 2px solid var(--basel-gold);
+      outline-offset: 2px;
+      border-color: var(--basel-gold);
+    }
+
+    form button {
+      width: 100%;
+      background: linear-gradient(90deg, var(--basel-red), var(--basel-gold));
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      padding: 0.8rem 0;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form button:hover,
+    form button:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+    }
+
+    .map-container {
+      margin: 2rem auto 0;
+      max-width: 600px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 180px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    .map-label {
+      text-align: center;
+      margin-top: 0.5rem;
+      color: #888;
+    }
+
+    .emergency-box {
+      background: var(--basel-red-soft);
+      color: var(--basel-red);
+      margin: 2rem auto 0;
+      max-width: 700px;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 2px 10px rgba(220, 20, 60, 0.08);
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--basel-black);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--basel-gold);
+      margin-bottom: 1rem;
+    }
+
+    .footer-section a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover,
+    .footer-section a:focus {
+      color: var(--basel-gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Focus styles */
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--basel-gold);
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Tablet */
+    @media (max-width: 992px) {
+      nav {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .section {
+        padding: 3rem 1.5rem;
+      }
+
+      .traditions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      .nav-links {
+        flex-basis: 100%;
+        justify-content: center;
+        gap: 0.8rem;
+      }
+
+      .nav-links a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+
+      .language-switch {
+        order: -1;
+      }
+
+      .hero {
+        min-height: 80vh;
+        height: auto;
+      }
+
+      .section {
+        padding: 2rem 1rem;
+      }
+
+      .traditions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .history-images img {
+        max-width: 100%;
+      }
+
+      .contact-info,
+      .contact-form-box {
+        min-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        font-size: 0.85rem;
+      }
+
+      .language-switch button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.9rem;
+      }
+
+      .hero-content {
+        padding: 1rem;
+      }
+
+      .tradition-card {
+        padding: 1.5rem;
+      }
+
+      .event-card {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (prefers-contrast: high) {
+      .tradition-card {
+        border-width: 3px;
+      }
+
+      .nav-links a:focus,
+      button:focus {
+        outline-width: 3px;
+      }
+    }
+
+    .welcome-message {
+  margin-top: 0.3rem;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  font-style: italic;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  opacity: 0.95;
+}
+
+    /* ================================
+       SCRIPT PRINCIPAL - PANTALLA INICIO
+    ================================== */
+    #startup-screen {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 2000; /* por encima del header (1000) y del video */
+      color: #fff;
+    }
+
+    .startup-box {
+      text-align: center;
+      padding: 2rem 3rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+    }
+
+    #startup-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--basel-gold);
+    }
+
+    #startup-text {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    #startup-next {
+      background: var(--basel-gold);
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      color: var(--basel-black);
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 12px rgba(255, 215, 0, 0.4);
+    }
+
+    #startup-next:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+    }
+
+    .startup-lang {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .startup-lang button {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 0.35rem 0.9rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .startup-lang button:hover,
+    .startup-lang button.active {
+      background: var(--basel-gold);
+      color: var(--basel-black);
+      border-color: var(--basel-gold);
+    }
+    /* ===== MENÚ DESPLEGABLE EN NAV ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: inline-block;
+  position: relative;
+  padding-right: 1.4rem; /* espacio para la flechita */
+}
+
+/* Flechita del desplegable */
+.dropdown-toggle::after {
+  content: "▾";
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+}
+
+/* Caja del menú */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: var(--text-dark);
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  padding: 0.4rem 0;
+  list-style: none;
+  min-width: 200px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1500; /* por encima del header */
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.45rem 1rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus {
+  background: var(--basel-gold-soft);
+  color: var(--basel-red);
+}
+/* ===== SLIDER DE IMÁGENES - VERSIÓN GRANDE ===== */
+.image-slider {
+  margin: 3rem auto 0;
+  max-width: 1000px;     /* más grande */
+  height: 550px;         /* nuevo tamaño */
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  background: #000;
+}
+
+.slides-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* se ve estético */
+}
+
+.slide-caption {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Flechas */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.prev {
+  left: 1rem;
+}
+
+.slider-btn.next {
+  right: 1rem;
+}
+  </style>
+</head>
+<body>
+  <!-- ===== PANTALLA DE INICIO ===== -->
+  <div id="startup-screen">
+    <div class="startup-box">
+      <h1 id="startup-title">Carnaval de Basilea</h1>
+      <p id="startup-text">Bienvenido. Selecciona idioma y presiona continuar.</p>
+      <button id="startup-next">Siguiente</button>
+    </div>
+
+    <div class="startup-lang">
+      <button data-lang="es" class="active">ES</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="de">DE</button>
+    </div>
+  </div>
+
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <header>
+    <nav>
+      <div class="logo">Basler Fasnacht</div>
+<ul class="nav-links">
+  <li><a href="#inicio">Inicio</a></li>
+
+  <!-- ===== MENÚ DESPLEGABLE EVENTOS ===== -->
+  <li class="dropdown">
+    <a href="#eventos"
+       class="dropdown-toggle"
+       aria-haspopup="true"
+       aria-expanded="false">
+      Eventos
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="#eventos" id="submenu-main-events">Eventos principales</a></li>
+      <li><a href="#tradiciones" id="submenu-schedule">Tradiciones</a></li>
+      <li><a href="#historia" id="submenu-contact">Historia</a></li>
+    </ul>
+  </li>
+
+  <li><a href="#contacto">Contacto</a></li>
+</ul>
+
+      <div class="language-switch">
+        <button aria-label="Cambiar a alemán" aria-pressed="false">DE</button>
+        <button aria-label="Cambiar a inglés" aria-pressed="false">EN</button>
+        <button class="active" aria-label="Cambiar a español" aria-pressed="true">ES</button>
+      </div>
+    </nav>
+  </header>
+
+<section class="hero" id="inicio">
+  <video class="hero-video" autoplay loop muted playsinline aria-hidden="true">
+    <source src="Videos/Basler-Fasnacht-Schweiz.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+  <div class="hero-content">
+    <h1>Carnaval de Basilea</h1>
+    <p>Descubre la magia del carnaval más fascinante de Suiza, Patrimonio Cultural Inmaterial de la UNESCO</p>
+
+    <!-- Mensaje dinámico según hora e idioma -->
+    <p id="welcome-message" class="welcome-message"></p>
+
+    <a href="#tradiciones" class="cta-button">Explorar Tradiciones</a>
+  </div>
+</section>
+
+  <main id="main-content">
+    <section class="section" id="tradiciones">
+      <h2>Tradiciones Únicas</h2>
+      <div class="unesco-banner">
+        <span aria-hidden="true">🏛️</span> Patrimonio Cultural Inmaterial de la UNESCO desde 2017
+      </div>
+
+      <div class="traditions-grid">
+        <article class="tradition-card">
+          <div class="icon" aria-hidden="true">🎭</div>
+          <h3 data-i18n="traditionsDetailed.larvenTitle">Las Larven (Máscaras)</h3>
+          <p data-i18n="traditionsDetailed.larvenText">Las máscaras tradicionales, a menudo grotescas o satíricas, son verdaderas obras de arte artesanal que representan la esencia del carnaval de Basel. Cada máscara cuenta una historia única.</p>
+        </article>
+
+        <article class="tradition-card">
+          <div class="icon" aria-hidden="true">🏮</div>
+          <h3 data-i18n="traditionsDetailed.morgesTitle">Morgestraich</h3>
+          <p data-i18n="traditionsDetailed.morgesText">El inicio mágico del carnaval a las 4 AM en absoluta oscuridad, iluminado únicamente por los hermosos faroles pintados a mano. Un espectáculo visual inolvidable.</p>
+        </article>
+
+        <article class="tradition-card">
+          <div class="icon" aria-hidden="true">🎵</div>
+          <h3 data-i18n="traditionsDetailed.piccoloTitle">Música de Piccolos y Tambores</h3>
+          <p data-i18n="traditionsDetailed.piccoloText">La banda sonora única del carnaval que resuena por las calles de Basel, creando una atmósfera mágica y envolvente que define el espíritu festivo.</p>
+        </article>
+
+        <article class="tradition-card">
+          <div class="icon" aria-hidden="true">🎪</div>
+          <h3 data-i18n="traditionsDetailed.schnitzelTitle">Schnitzelbänke</h3>
+          <p data-i18n="traditionsDetailed.schnitzelText">Canciones satíricas que comentan con humor e inteligencia la actualidad política y social, manteniendo viva la tradición crítica del carnaval.</p>
+        </article>
+
+        <article class="tradition-card">
+          <div class="icon" aria-hidden="true">🎊</div>
+          <h3 data-i18n="traditionsDetailed.rappliTitle">Räppli (Confeti)</h3>
+          <p data-i18n="traditionsDetailed.rappliText">El colorido confeti tradicional que llena las calles de Basel durante los tres días de carnaval, creando una atmósfera festiva y alegre.</p>
+        </article>
+
+        <article class="tradition-card">
+          <div class="icon" aria-hidden="true">🍲</div>
+          <h3 data-i18n="traditionsDetailed.mehlsuppeTitle">Mehlsuppe</h3>
+          <p data-i18n="traditionsDetailed.mehlsuppeText">La tradicional sopa de harina que se sirve durante el carnaval, manteniendo a los participantes con energía durante las largas jornadas festivas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="historia">
+      <h2>Una Tradición Centenaria</h2>
+      <p style="font-size: 1.2rem; text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+        El Carnaval de Basel es más que una celebración; es una expresión cultural profundamente arraigada en la identidad de la ciudad. Con elementos que equilibran lo tradicional y lo moderno, esta festividad única combina arte, música, sátira social y comunidad en una experiencia que atrae a visitantes de todo el mundo.
+      </p>
+           <!-- ===== SLIDER DE IMÁGENES ===== -->
+      <div class="image-slider" id="image-slider" aria-label="Galería de imágenes del Carnaval de Basilea">
+        <button class="slider-btn prev" aria-label="Imagen anterior">‹</button>
+
+        <div class="slides-wrapper">
+          <div class="slide active">
+            <img src="Images/k809400.jpg__600x0_q85_subsampling-2_upscale.jpg"
+                 alt="Grupo de participantes del Carnaval de Basilea con máscaras tradicionales Larven">
+            <p class="slide-caption">Máscaras tradicionales Larven en pleno desfile.</p>
+          </div>
+
+          <div class="slide">
+            <img src="Images/fasnacht-basel-752x501.jpg"
+                 alt="Desfile del Carnaval de Basilea con músicos en las calles iluminadas">
+            <p class="slide-caption">Desfile principal recorriendo las calles del centro histórico.</p>
+          </div>
+
+          <div class="slide">
+            <img src="Images/guggenkonzert-basler-fasnacht-basel-carnival-752x501.jpg"
+                 alt="Guggenkonzert con banda musical en el Carnaval de Basilea">
+            <p class="slide-caption">Conciertos Guggen llenando de música la ciudad.</p>
+          </div>
+
+          <div class="slide">
+            <img src="Images/fasnacht-basel-752x501.jpg"
+                 alt="Detalle de faroles iluminados durante el Carnaval de Basilea">
+            <p class="slide-caption">Faroles iluminados creando una atmósfera única.</p>
+          </div>
+        </div>
+
+        <button class="slider-btn next" aria-label="Imagen siguiente">›</button>
+      </div>
+    </section>
+
+    <section class="section" id="eventos">
+      <h2>Eventos Principales</h2>
+      <div class="events-grid">
+        <article class="event-card">
+          <h3 data-i18n="events.opening.title">Desfile de Apertura</h3>
+          <p data-i18n="events.opening.text">El tradicional desfile que marca el inicio del carnaval, con comparsas, música y coloridas carrozas que recorren las calles de Basilea.</p>
+          <span class="event-date" data-i18n="events.opening.date">Fecha: 2 de marzo, 2026</span>
+          <video controls loop muted aria-label="Video del desfile de apertura del Carnaval de Basilea con comparsas y música">
+            <source src="Videos/SSvid.net--Fasnacht-Basel-2025-Cortège-am-Mittwoch-Fasnachtsumzug-Guggenmusik_720pFH.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </article>
+
+        <article class="event-card">
+          <h3 data-i18n="events.morges.title">Morgestraich</h3>
+          <p data-i18n="events.morges.text">El evento más emblemático: luces apagadas, faroles pintados a mano y música tradicional a las 4 de la mañana en punto.</p>
+          <span class="event-date" data-i18n="events.morges.date">Fecha: 3 de marzo, 2026</span>
+          <video controls loop muted aria-label="Video del Morgestraich, evento principal del Carnaval de Basilea con faroles iluminados">
+            <source src="Videos/SSvid.net--Morgenstreich-Basler-Fasnacht-2025_720pFHR.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </article>
+
+        <article class="event-card">
+          <h3 data-i18n="events.piccolos.title">Concierto de Piccolos y Tambores</h3>
+          <p data-i18n="events.piccolos.text">Presentaciones en vivo que muestran el talento local y la atmósfera única del carnaval con música tradicional suiza.</p>
+          <span class="event-date" data-i18n="events.piccolos.date">Fecha: 4 de marzo, 2026</span>
+          <video controls loop muted aria-label="Video del concierto de piccolos y tambores del Carnaval de Basilea con formaciones musicales">
+            <source src="Videos/Carnival-formation-piccolos-drums-Basel.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="cronograma">
+      <h2 id="schedule-title">Programa Completo</h2>
+      <div class="schedule-subtitle" id="schedule-subtitle">Todos los eventos del Carnaval de Basilea</div>
+      <div class="schedule-grid" id="schedule-grid"></div>
+      <div class="legend">
+        <span class="r"><i></i><span id="legend-mon">Lunes</span></span>
+        <span class="y"><i></i><span id="legend-tue">Martes</span></span>
+        <span class="g"><i></i><span id="legend-wed">Miércoles</span></span>
+      </div>
+    </section>
+
+    <section class="section" id="contacto-extra" style="padding-top: 0;">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3 id="contact-title">Información Oficial de Contacto</h3>
+          <div class="contact-info-item">
+            <span class="contact-info-label" id="contact-address-label"><span aria-hidden="true">📍</span> Dirección</span>
+            <span id="contact-address">Barfüsserplatz 1<br>4051 Basel, Suiza</span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label" id="contact-phone-label"><span aria-hidden="true">📞</span> Teléfono</span>
+            <span id="contact-phone">+41 61 123 45 67</span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label" id="contact-email-label"><span aria-hidden="true">✉️</span> Email</span>
+            <a id="contact-email" href="mailto:info@baslerfasnacht.ch" style="color: var(--basel-red);">info@baslerfasnacht.ch</a>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label" id="contact-social-label">Síguenos en redes sociales</span>
+            <div>
+              <a href="#" aria-label="Síguenos en Twitter" style="color: #1976d2; font-size: 1.5rem; margin-right: 0.5rem;">●</a>
+              <a href="#" aria-label="Síguenos en Instagram" style="color: #e4405f; font-size: 1.5rem; margin-right: 0.5rem;">●</a>
+              <a href="#" aria-label="Síguenos en Facebook" style="color: #3b5998; font-size: 1.5rem; margin-right: 0.5rem;">●</a>
+              <a href="#" aria-label="Síguenos en YouTube" style="color: #dc143c; font-size: 1.5rem;">●</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-box">
+          <h3 id="contact-form-title">Envíanos un mensaje</h3>
+          <form>
+            <label for="nombre" id="contact-form-name-label">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            
+            <label for="email" id="contact-form-email-label">Email</label>
+            <input type="email" id="email" name="email" placeholder="ejemplo@email.com" required>
+            
+            <label for="mensaje" id="contact-form-message-label">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="4" required></textarea>
+            
+            <button id="contact-form-send" type="submit">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.353763527973!2d7.591926315646775!3d47.56220297918009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4791b9e1e3e1e1e1%3A0x1e1e1e1e1e1e1e1!2sBarfüsserplatz%201%2C%204051%20Basel%2C%20Suiza!5e0!3m2!1ses!2sch!4v1690000000000!5m2!1ses!2sch"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa de ubicación del Carnaval de Basilea en Barfüsserplatz"></iframe>
+        <div class="map-label" id="contact-map-label">
+          Mapa de Basilea<br><span style="font-size: 0.95rem;">Ubicación del carnaval</span>
+        </div>
+      </div>
+
+      <div class="emergency-box">
+        <div id="contact-emergency-title" style="font-size: 1.1rem;"><span aria-hidden="true">⚠</span> Contacto de Emergencia</div>
+        <div id="contact-emergency-info">Durante el carnaval: <span style="color: #222;">+41 117 (Emergencias)</span> | <span style="color: #222;">+41 61 123 45 99 (Información)</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 id="footer-tourism-title">Información Turística</h3>
+        <a href="#" id="footer-guide">Guía del Visitante</a>
+        <a href="#" id="footer-dates">Fechas 2026</a>
+        <a href="#" id="footer-accommodation">Alojamiento</a>
+        <a href="#" id="footer-transport">Transporte</a>
+      </div>
+      <div class="footer-section">
+        <h3 id="footer-culture-title">Cultura y Historia</h3>
+        <a href="#" id="footer-museum">Museo del Carnaval</a>
+        <a href="#" id="footer-archive">Archivo Histórico</a>
+        <a href="#" id="footer-traditions">Tradiciones</a>
+        <a href="#" id="footer-events">Eventos</a>
+      </div>
+      <div class="footer-section">
+        <h3 id="footer-contact-title">Contacto</h3>
+        <a href="#" id="footer-form">Formulario de Contacto</a>
+        <a href="#" id="footer-social">Redes Sociales</a>
+        <a href="#" id="footer-newsletter">Newsletter</a>
+      </div>
+    </div>
+    <div class="footer-bottom" id="footer-bottom">
+      &copy; 2026 Carnaval de Basilea. Todos los derechos reservados.<br>Página hecha por Camilo Ernesto Rodríguez Cárdenas - UNAD
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
